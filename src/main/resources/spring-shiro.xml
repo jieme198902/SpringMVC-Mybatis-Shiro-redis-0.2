@@ -101,15 +101,9 @@
 	    <property name="arguments" ref="jedisShiroSessionRepository"/>
 	</bean>
 	
-	
-	
-	
 	<!-- 授权 认证 -->
 	<bean id="sampleRealm" class="com.sojson.core.shiro.token.SampleRealm" ></bean>
 
-
-	
-	
 	<!-- Session Manager -->
 	<bean id="sessionManager" class="org.apache.shiro.web.session.mgt.DefaultWebSessionManager">
 		<!-- 相隔多久检查一次session的有效性   -->

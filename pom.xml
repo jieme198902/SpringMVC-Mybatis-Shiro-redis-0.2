@@ -2,8 +2,8 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>shiro.demo</groupId>
-	<artifactId>shiro.demo</artifactId>
+	<groupId>shiro-sms</groupId>
+	<artifactId>shiro.sms</artifactId>
 	<version>0.0.2-SNAPSHOT</version>
 	<packaging>war</packaging>
 
@@ -338,5 +338,10 @@
 		<!-- /Spring 升级4+ 依赖的JSON包 -->
 
 
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.6.2</version>
+		</dependency>
 	</dependencies>
 </project>
