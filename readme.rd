@@ -11,19 +11,17 @@ PS：你可以注册自己的帐号，然后用管理员赋权限给你自己的
 
 使用过程：
 
-1.创建数据库。
-创建语句		   ：tables.sql
+1.创建数据库&插入初始化数据
+创建语句		   ：init.sql
 
-2.插入初始化数据
-插入初始化数据：init.data.sql
-
-
+2.启动redis服务器：
+    配置config.properties里redis的信息
+    配置jdbc.properties里的数据库信息
 3.运行。
 
 
 管理员帐号：admin
 密码：sojson
-ps:定时任务的sql会把密码改变为sojson.com 
 
 
 新版本说明：http://www.sojson.com/blog/164.html 和 http://www.sojson.com/blog/165.html
@@ -35,20 +33,13 @@ ps:定时任务的sql会把密码改变为sojson.com
 
 一、Cache配置修改。
 
-配置文件（spring-cache.xml ）中已经修改为如下配置：
+配置文件（spring-cache.xml ）中已经修改为如下配置（config.properties）：
 
-    <!-- redis 配置,也可以把配置挪到properties配置文件中,再读取 -->
-    <bean id="jedisPool" class="redis.clients.jedis.JedisPool">
-    	<constructor-arg index="0" ref="jedisPoolConfig" />
-        <constructor-arg index="2" value="6379"  name="port" type="int"/>
-        <constructor-arg index="3" value="5000"  name="timeout" type="int"/>
-        <constructor-arg index="1" value="127.0.0.1" name="host" type="java.lang.String"/>
-    </bean>
-    <!-- 
-    	这种 arguments 构造的方式，之前配置有缺点。
-    	这里之前的配置有问题，因为参数类型不一致，有时候jar和环境的问题，导致参数根据index对应，会处理问题，
-    	理论上加另一个 name，就可以解决，现在把name 和type都加上，更保险。
-     -->
+    <constructor-arg index="2" value="${redis.port}" name="port" type="int"/>
+    <constructor-arg index="3" value="${redis.timeout}" name="timeout" type="int"/>
+    <constructor-arg index="1" value="${redis.host}" name="host" type="java.lang.String"/>
+    <constructor-arg index="4" value="${redis.password}" name="password" type="java.lang.String"/>
+
 
 二、登录获取上一个URL地址报错。
 

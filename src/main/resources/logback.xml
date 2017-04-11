@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<pattern>%d{MM-dd HH:mm:ss} [%thread] %-5level %logger{56} - %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+
+	<!--<appender name="rollingFile" class="ch.qos.logback.core.rolling.RollingFileAppender" >-->
+		<!--<file>/opt/logs/uniauto.log</file>-->
+		<!--<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">-->
+			<!--<fileNamePattern>/var/logs/uniauto.%d{yyyy-MM-dd}.%i.log-->
+			<!--</fileNamePattern>-->
+			<!--<maxHistory>15</maxHistory>-->
+			<!--<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">-->
+				<!--&lt;!&ndash; or whenever the file size reaches 100MB &ndash;&gt;-->
+				<!--<maxFileSize>100MB</maxFileSize>-->
+			<!--</timeBasedFileNamingAndTriggeringPolicy>-->
+		<!--</rollingPolicy>-->
+		<!--<encoder>-->
+			<!--<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{86} - %msg%n-->
+			<!--</pattern>-->
+		<!--</encoder>-->
+	<!--</appender>-->
+
+	<logger name="org.springframework" level="INFO" />
+	
+	<logger name="com.msjw" level="INFO" />
+	<!--log4jdbc -->
+	<logger name="dao" level="DEBUG"/>
+	
+	<logger name="org.apache.shiro" level="INFO" />
+	
+	<root level="INFO">
+		<!--<appender-ref ref="rollingFile" />-->
+		<appender-ref ref="STDOUT" />
+	</root>
+</configuration>
