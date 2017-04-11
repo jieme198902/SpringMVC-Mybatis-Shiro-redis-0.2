@@ -131,7 +131,12 @@
                             <td>${it.email?default('未设置')}</td>
                             <td>${(it.status==1)?string('有效','禁止')}</td>
                             <td>${it.createTime?string('yyyy-MM-dd HH:mm')}</td>
-                            <td>${it.lastLoginTime?string('yyyy-MM-dd HH:mm')}</td>
+                            <td><#if it.lastLoginTime?exists>
+                            ${it.lastLoginTime?string('yyyy-MM-dd HH:mm')}
+                            <#else > -
+                            </#if>
+                            </td>
+
                             <td>
                                 <@shiro.hasPermission name="/member/forbidUserById.shtml">
                                 ${(it.status==1)?string('<i class="glyphicon glyphicon-eye-close"></i>&nbsp;','<i class="glyphicon glyphicon-eye-open"></i>&nbsp;')}

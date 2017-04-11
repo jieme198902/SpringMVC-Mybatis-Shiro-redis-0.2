@@ -3,8 +3,8 @@ package com.sojson.user.controller;
 import java.util.List;
 import java.util.Map;
 
-import com.google.gson.Gson;
-import com.sojson.common.utils.LoggerUtils;
+import com.sojson.common.conf.CommResp;
+import com.sojson.common.utils.RequestUtil;
 import com.sojson.common.utils.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
@@ -75,9 +75,18 @@ public class MemberController extends BaseController {
      */
     @RequestMapping("add")
     public ModelAndView add(UUser user) {
-        System.out.println("add--> " + new Gson().toJson(user));
-        if (null != user && StringUtils.isNotBlank(user.getNickname())) {
-            return new ModelAndView("redirect:/member/list.shtml");
+        //查看email是否填写，如果填写则表示将要保存用户。
+        if (null != user && StringUtils.isNotBlank(user.getEmail())) {
+            CommResp<UUser> commResp = userService.addMemberUser(user);
+            if (RequestUtil.isSuccess(commResp)) {
+                //添加成功，重定向到列表页
+                return new ModelAndView("redirect:/member/list.shtml");
+            } else {
+                //添加失败
+                ModelAndView modelAndView = new ModelAndView("member/add");
+                modelAndView.addObject(commResp);
+                return modelAndView;
+            }
         } else {
             return new ModelAndView("member/add");
         }

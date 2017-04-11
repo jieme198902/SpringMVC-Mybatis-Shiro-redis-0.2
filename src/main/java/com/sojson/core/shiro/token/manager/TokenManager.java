@@ -153,7 +153,7 @@ public class TokenManager {
 	
 	/**
 	 * 根据UserIds 	清空权限信息。
-	 * @param id	用户ID
+	 * @param userIds	用户ID
 	 */
 	public static void clearUserAuthByUserId(Long...userIds){
 		
