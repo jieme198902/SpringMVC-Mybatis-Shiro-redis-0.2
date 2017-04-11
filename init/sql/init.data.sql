@@ -8,11 +8,32 @@ MySQL - 5.6.16-log : Database - i_wenyiba_com
 
 /*Data for the table `u_permission` */
 
-insert  into `u_permission`(`id`,`url`,`name`) values (4,'/permission/index.shtml','权限列表'),(6,'/permission/addPermission.shtml','权限添加'),(7,'/permission/deletePermissionById.shtml','权限删除'),(8,'/member/list.shtml','用户列表'),(9,'/member/online.shtml','在线用户'),(10,'/member/changeSessionStatus.shtml','用户Session踢出'),(11,'/member/forbidUserById.shtml','用户激活&禁止'),(12,'/member/deleteUserById.shtml','用户删除'),(13,'/permission/addPermission2Role.shtml','权限分配'),(14,'/role/clearRoleByUserIds.shtml','用户角色分配清空'),(15,'/role/addRole2User.shtml','角色分配保存'),(16,'/role/deleteRoleById.shtml','角色列表删除'),(17,'/role/addRole.shtml','角色列表添加'),(18,'/role/index.shtml','角色列表'),(19,'/permission/allocation.shtml','权限分配'),(20,'/role/allocation.shtml','角色分配');
+insert  into `u_permission`(`id`,`url`,`name`) values
+(4,'/permission/index.shtml','权限列表'),
+(6,'/permission/addPermission.shtml','权限添加'),
+(7,'/permission/deletePermissionById.shtml','权限删除'),
+(8,'/member/list.shtml','用户列表'),
+(9,'/member/online.shtml','在线用户'),
+(10,'/member/changeSessionStatus.shtml','用户Session踢出'),
+(11,'/member/forbidUserById.shtml','用户激活&禁止'),
+(12,'/member/deleteUserById.shtml','用户删除'),
+(13,'/permission/addPermission2Role.shtml','权限分配'),
+(14,'/role/clearRoleByUserIds.shtml','用户角色分配清空'),
+(15,'/role/addRole2User.shtml','角色分配保存'),
+(16,'/role/deleteRoleById.shtml','角色列表删除'),
+(17,'/role/addRole.shtml','角色列表添加'),
+(18,'/role/index.shtml','角色列表'),
+(19,'/permission/allocation.shtml','权限分配'),
+(20,'/role/allocation.shtml','角色分配'),
+(21,'/member/add.shtml','添加用户'),
+(22,'/permission/updatePermission.shtml','权限修改');
 
 /*Data for the table `u_role` */
 
-insert  into `u_role`(`id`,`name`,`type`) values (1,'系统管理员','888888'),(3,'权限角色','100003'),(4,'用户中心','100002');
+insert  into `u_role`(`id`,`name`,`type`) values
+(1,'系统管理员','888888'),
+(3,'权限角色','100003'),
+(4,'用户中心','100002');
 
 /*Data for the table `u_role_permission` */
 
@@ -24,6 +45,10 @@ insert  into `u_user`(`id`,`nickname`,`email`,`pswd`,`create_time`,`last_login_t
 
 /*Data for the table `u_user_role` */
 
-insert  into `u_user_role`(`uid`,`rid`) values (12,4),(11,3),(11,4),(1,1);
+insert  into `u_user_role`(`uid`,`rid`) values
+(12,4),
+(11,3),
+(11,4),
+(1,1);
 
 
